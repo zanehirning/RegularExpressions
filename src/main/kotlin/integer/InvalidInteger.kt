@@ -1,6 +1,6 @@
 package org.example.integer
 
-class Invalid : IntegerState {
+class InvalidInteger : IntegerState {
     override fun consumeCharacter(char: String, integerVerifier: IntegerVerifier) {
         // Do nothing
     }

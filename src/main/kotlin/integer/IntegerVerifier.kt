@@ -4,10 +4,10 @@ class IntegerVerifier {
     lateinit var state: IntegerState
 
     fun verify(input: String): Boolean {
-        state = FirstDigit()
+        state = FirstInteger()
         input.chunked(1).forEach {
             state.consumeCharacter(it, this)
         }
-        return state is Valid
+        return state is ValidInteger
     }
 }
