@@ -11,6 +11,7 @@ class BinaryVerifierTest {
         assert(binaryVerifier.verify("101"))
         assert(binaryVerifier.verify("1101"))
         assert(!binaryVerifier.verify("2"))
+        assert(!binaryVerifier.verify("1000"))
         assert(!binaryVerifier.verify("dasfkl"))
         assert(!binaryVerifier.verify("1.0"))
         assert(!binaryVerifier.verify("1fsjdkl1"))
