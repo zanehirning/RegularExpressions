@@ -1,6 +1,6 @@
 import enums.RegexType
 
-class Verifier() {
+class Verifier {
     lateinit var state: RegexState
     private val stateFactory = StateFactory()
     fun verify(input: String, type: RegexType): Boolean {
