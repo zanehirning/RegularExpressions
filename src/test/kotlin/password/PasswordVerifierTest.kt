@@ -15,5 +15,6 @@ class PasswordVerifierTest {
         assert(!passwordVerifier.verify("aaaaaa!aaaa")) // no capitol
         assert(!passwordVerifier.verify("Aaaaaaab!")) // ends with special character
         assert(!passwordVerifier.verify("aaaaaaaaaaa")) // no special character or capitol
+        assert(!passwordVerifier.verify("aaaaaaaaaaaaB")) // no special character or capitol
     }
 }

@@ -1,15 +1,17 @@
-package org.example.password
+package password
 
-open class Alphanumeric : PasswordState {
+import org.example.password.*
+
+class Lowercase : PasswordState {
     override fun consumeCharacter(char: String, passwordVerifier: PasswordVerifier) {
         if (char in "(!@#$%&*)") {
-            passwordVerifier.state = SpecialChar()
+            passwordVerifier.state = PostSpecialChar()
         }
         if (char.get(0).isLetterOrDigit()) {
-            passwordVerifier.state = Alphanumeric()
+            passwordVerifier.state = Lowercase()
         }
         if (char.get(0).isUpperCase()) {
-            passwordVerifier.state = ValidPassword()
+            passwordVerifier.state = PostCapitol()
         }
     }
 }
