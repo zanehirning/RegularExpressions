@@ -2,7 +2,6 @@ package password
 
 import RegexState
 import Verifier
-import org.example.password.*
 
 class Lowercase : RegexState {
     override fun consumeCharacter(char: String, verifier: Verifier) {

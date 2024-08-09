@@ -2,6 +2,7 @@ package org.example.password
 
 import RegexState
 import Verifier
+import password.ValidPassword
 
 class InvalidPassword : RegexState {
     override fun consumeCharacter(char: String, verifier: Verifier) {

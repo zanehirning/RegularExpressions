@@ -7,7 +7,7 @@ import org.example.floats.FirstDigit
 import org.example.floats.ValidFloat
 import org.example.integer.FirstInteger
 import org.example.integer.ValidInteger
-import org.example.password.ValidPassword
+import password.ValidPassword
 import password.Lowercase
 
 class StateFactory {
@@ -21,7 +21,7 @@ class StateFactory {
         }
     }
 
-    fun getFinalState(type: RegexType): Any {
+    fun getFinalState(type: RegexType): RegexState {
         return when(type) {
             RegexType.PASSWORD -> ValidPassword()
             RegexType.EMAIL -> ValidEmail()
