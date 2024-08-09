@@ -1,15 +1,18 @@
 package org.example.email
 
-class FirstPart : EmailState {
-    override fun consumeCharacter(char: String, emailVerifier: EmailVerifier) {
+import RegexState
+import Verifier
+
+class FirstPart : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
         if (char == "@") {
-            emailVerifier.state = AtSymbol()
+            verifier.state = AtSymbol()
         }
         else if (char == " ") {
-            emailVerifier.state = InvalidEmail()
+            verifier.state = InvalidEmail()
         }
         else {
-            emailVerifier.state = FirstPart()
+            verifier.state = FirstPart()
         }
     }
 }

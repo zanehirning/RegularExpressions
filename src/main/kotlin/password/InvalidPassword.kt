@@ -1,7 +1,10 @@
 package org.example.password
 
-class InvalidPassword : PasswordState {
-    override fun consumeCharacter(char: String, passwordVerifier: PasswordVerifier) {
-        passwordVerifier.state = if (char.get(0).isLetterOrDigit()) ValidPassword() else InvalidPassword()
+import RegexState
+import Verifier
+
+class InvalidPassword : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
+        verifier.state = if (char.get(0).isLetterOrDigit()) ValidPassword() else InvalidPassword()
     }
 }

@@ -1,20 +1,21 @@
 package password
 
-import org.example.password.PasswordVerifier
+import Verifier
+import enums.RegexType
 import kotlin.test.Test
 
 class PasswordVerifierTest {
     @Test
     fun testVerify() {
-        val passwordVerifier = PasswordVerifier()
-        assert(passwordVerifier.verify("aaaaH!aa"))
-        assert(passwordVerifier.verify("1234567*89J"))
-        assert(passwordVerifier.verify("!@#)#@!(fdsaS"))
-        assert(!passwordVerifier.verify("1!J"))
-        assert(!passwordVerifier.verify("123Jfdskaj!")) // ends with special character
-        assert(!passwordVerifier.verify("aaaaaa!aaaa")) // no capitol
-        assert(!passwordVerifier.verify("Aaaaaaab!")) // ends with special character
-        assert(!passwordVerifier.verify("aaaaaaaaaaa")) // no special character or capitol
-        assert(!passwordVerifier.verify("aaaaaaaaaaaaB")) // no special character or capitol
+        val passwordVerifier = Verifier()
+        assert(passwordVerifier.verify("aaaaH!aa", RegexType.PASSWORD))
+        assert(passwordVerifier.verify("1234567*89J", RegexType.PASSWORD))
+        assert(passwordVerifier.verify("!@#)#@!(fdsaS", RegexType.PASSWORD))
+        assert(!passwordVerifier.verify("1!J", RegexType.PASSWORD))
+        assert(!passwordVerifier.verify("123Jfdskaj!", RegexType.PASSWORD)) // ends with special character
+        assert(!passwordVerifier.verify("aaaaaa!aaaa", RegexType.PASSWORD)) // no capitol
+        assert(!passwordVerifier.verify("Aaaaaaab!", RegexType.PASSWORD)) // ends with special character
+        assert(!passwordVerifier.verify("aaaaaaaaaaa", RegexType.PASSWORD)) // no special character or capitol
+        assert(!passwordVerifier.verify("aaaaaaaaaaaaB", RegexType.PASSWORD)) // no special character or capitol
     }
 }

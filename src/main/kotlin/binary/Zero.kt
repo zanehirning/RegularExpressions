@@ -1,13 +1,16 @@
 package org.example.binary
 
-open class Zero : BinaryState {
-    override fun consumeCharacter(char: String, binaryVerifier: BinaryVerifier) {
+import RegexState
+import Verifier
+
+open class Zero : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
         if (char == "1") {
-            binaryVerifier.state = ValidBinary()
+            verifier.state = ValidBinary()
         } else if (char == "0") {
-            binaryVerifier.state = Zero()
+            verifier.state = Zero()
         } else {
-            binaryVerifier.state = InvalidBinary()
+            verifier.state = InvalidBinary()
         }
     }
 }

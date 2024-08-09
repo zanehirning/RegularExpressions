@@ -1,7 +1,10 @@
 package org.example.binary
 
-class InvalidBinary : BinaryState {
-    override fun consumeCharacter(char: String, binaryVerifier: BinaryVerifier) {
+import RegexState
+import Verifier
+
+class InvalidBinary : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
         // do nothing
     }
 }

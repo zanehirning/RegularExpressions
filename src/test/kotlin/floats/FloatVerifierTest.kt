@@ -1,20 +1,21 @@
 package floats
 
-import org.example.floats.FloatVerifier
+import Verifier
+import enums.RegexType
 import kotlin.test.Test
 
 class FloatVerifierTest {
     @Test
     fun testVerify() {
-        val floatVerifier = FloatVerifier()
-        assert(floatVerifier.verify("1.0"))
-        assert(floatVerifier.verify("123.0"))
-        assert(floatVerifier.verify("0.123"))
-        assert(floatVerifier.verify("0.1230000"))
-        assert(!floatVerifier.verify("123."))
-        assert(!floatVerifier.verify("123.213fsdaklj"))
-        assert(!floatVerifier.verify("1"))
-        assert(!floatVerifier.verify("0123.2130"))
-        assert(!floatVerifier.verify("0.0.0.0.123"))
+        val floatVerifier = Verifier()
+        assert(floatVerifier.verify("1.0", RegexType.FLOAT))
+        assert(floatVerifier.verify("123.0", RegexType.FLOAT))
+        assert(floatVerifier.verify("0.123", RegexType.FLOAT))
+        assert(floatVerifier.verify("0.1230000", RegexType.FLOAT))
+        assert(!floatVerifier.verify("123.", RegexType.FLOAT))
+        assert(!floatVerifier.verify("123.213fsdaklj", RegexType.FLOAT))
+        assert(!floatVerifier.verify("1", RegexType.FLOAT))
+        assert(!floatVerifier.verify("0123.2130", RegexType.FLOAT))
+        assert(!floatVerifier.verify("0.0.0.0.123", RegexType.FLOAT))
     }
 }

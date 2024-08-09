@@ -1,7 +1,10 @@
 package org.example.integer
 
-class InvalidInteger : IntegerState {
-    override fun consumeCharacter(char: String, integerVerifier: IntegerVerifier) {
+import RegexState
+import Verifier
+
+class InvalidInteger : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
         // Do nothing
     }
 }

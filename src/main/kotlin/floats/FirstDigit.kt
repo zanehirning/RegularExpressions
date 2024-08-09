@@ -1,18 +1,21 @@
 package org.example.floats
 
-class FirstDigit : FloatState {
-    override fun consumeCharacter(char: String, floatVerifier: FloatVerifier) {
+import RegexState
+import Verifier
+
+class FirstDigit : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
         if (char == "0") {
-            floatVerifier.state = Zero()
+            verifier.state = Zero()
         }
         else if (char in "123456789") {
-            floatVerifier.state = Integer()
+            verifier.state = Integer()
         }
         else if (char == ".") {
-            floatVerifier.state = Period()
+            verifier.state = Period()
         }
         else {
-            floatVerifier.state = InvalidFloat()
+            verifier.state = InvalidFloat()
         }
     }
 }

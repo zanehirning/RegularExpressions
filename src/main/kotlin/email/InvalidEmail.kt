@@ -1,6 +1,9 @@
 package org.example.email
 
-class InvalidEmail : EmailState {
-    override fun consumeCharacter(char: String, emailVerifier: EmailVerifier) {
+import RegexState
+import Verifier
+
+class InvalidEmail : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
     }
 }

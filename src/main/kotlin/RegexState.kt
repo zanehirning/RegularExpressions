@@ -1,3 +1,3 @@
 interface RegexState {
-    fun consumeChar(char: String, verifier: Verifier)
+    fun consumeCharacter(char: String, verifier: Verifier)
 }

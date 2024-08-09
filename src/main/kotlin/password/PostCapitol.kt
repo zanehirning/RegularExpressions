@@ -1,11 +1,11 @@
 package password
 
+import RegexState
+import Verifier
 import org.example.password.InvalidPassword
-import org.example.password.PasswordState
-import org.example.password.PasswordVerifier
 
-class PostCapitol : PasswordState {
-    override fun consumeCharacter(char: String, passwordVerifier: PasswordVerifier) {
-        passwordVerifier.state = if (char in "(!@#$%&*)") InvalidPassword() else PostCapitol()
+class PostCapitol : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
+        verifier.state = if (char in "(!@#$%&*)") InvalidPassword() else PostCapitol()
     }
 }

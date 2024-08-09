@@ -1,22 +1,23 @@
 package email
 
-import org.example.email.EmailVerifier
+import Verifier
+import enums.RegexType
 import kotlin.test.Test
 
 class EmailVerifierTest {
     @Test
     fun testVerify() {
-        var emailVerifier = EmailVerifier()
-        assert(emailVerifier.verify("test@usu.edu"))
-        assert(emailVerifier.verify("{}{:@,;.4932'';"))
-        assert(emailVerifier.verify("abc.abc@abc.com"))
-        assert(emailVerifier.verify("a@b.c"))
-        assert(!emailVerifier.verify("a@b@.c"))
-        assert(!emailVerifier.verify("abc@abc.com."))
-        assert(!emailVerifier.verify("abc@abc.com@com."))
-        assert(!emailVerifier.verify("abc abc@abc.com"))
-        assert(!emailVerifier.verify("abc.abc@a.bc.com"))
-        assert(!emailVerifier.verify("abc@ abc. com"))
-        assert(!emailVerifier.verify(""))
+        var emailVerifier = Verifier()
+        assert(emailVerifier.verify("test@usu.edu", RegexType.EMAIL))
+        assert(emailVerifier.verify("{}{:@,;.4932'';", RegexType.EMAIL))
+        assert(emailVerifier.verify("abc.abc@abc.com", RegexType.EMAIL))
+        assert(emailVerifier.verify("a@b.c", RegexType.EMAIL))
+        assert(!emailVerifier.verify("a@b@.c", RegexType.EMAIL))
+        assert(!emailVerifier.verify("abc@abc.com.", RegexType.EMAIL))
+        assert(!emailVerifier.verify("abc@abc.com@com.", RegexType.EMAIL))
+        assert(!emailVerifier.verify("abc abc@abc.com", RegexType.EMAIL))
+        assert(!emailVerifier.verify("abc.abc@a.bc.com", RegexType.EMAIL))
+        assert(!emailVerifier.verify("abc@ abc. com", RegexType.EMAIL))
+        assert(!emailVerifier.verify("", RegexType.EMAIL))
     }
 }

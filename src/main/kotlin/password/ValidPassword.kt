@@ -1,7 +1,10 @@
 package org.example.password
 
-class ValidPassword : PasswordState {
-    override fun consumeCharacter(char: String, passwordVerifier: PasswordVerifier) {
-        passwordVerifier.state = if (char in "(!@#$%&*)") InvalidPassword() else ValidPassword()
+import RegexState
+import Verifier
+
+class ValidPassword : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
+        verifier.state = if (char in "(!@#$%&*)") InvalidPassword() else ValidPassword()
     }
 }

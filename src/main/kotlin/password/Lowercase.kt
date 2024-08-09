@@ -1,17 +1,19 @@
 package password
 
+import RegexState
+import Verifier
 import org.example.password.*
 
-class Lowercase : PasswordState {
-    override fun consumeCharacter(char: String, passwordVerifier: PasswordVerifier) {
+class Lowercase : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
         if (char in "(!@#$%&*)") {
-            passwordVerifier.state = PostSpecialChar()
+            verifier.state = PostSpecialChar()
         }
         if (char.get(0).isLetterOrDigit()) {
-            passwordVerifier.state = Lowercase()
+            verifier.state = Lowercase()
         }
         if (char.get(0).isUpperCase()) {
-            passwordVerifier.state = PostCapitol()
+            verifier.state = PostCapitol()
         }
     }
 }

@@ -1,9 +1,12 @@
 package org.example.floats
 
-class ValidFloat : FloatState {
-    override fun consumeCharacter(char: String, floatVerifier: FloatVerifier) {
+import RegexState
+import Verifier
+
+class ValidFloat : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
         if (char !in "0123456789") {
-            floatVerifier.state = InvalidFloat()
+            verifier.state = InvalidFloat()
         }
     }
 }

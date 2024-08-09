@@ -1,11 +1,11 @@
 package password
 
-import org.example.password.PasswordState
-import org.example.password.PasswordVerifier
+import RegexState
+import Verifier
 import org.example.password.ValidPassword
 
-class PostSpecialChar : PasswordState {
-    override fun consumeCharacter(char: String, passwordVerifier: PasswordVerifier) {
-        passwordVerifier.state = if (char.get(0).isUpperCase()) ValidPassword() else PostSpecialChar()
+class PostSpecialChar : RegexState {
+    override fun consumeCharacter(char: String, verifier: Verifier) {
+        verifier.state = if (char.get(0).isUpperCase()) ValidPassword() else PostSpecialChar()
     }
 }
